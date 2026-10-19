@@ -1,0 +1,15 @@
+services:
+  db:
+    # Plain Postgres for now; TimescaleDB hypertables are available when we need them.
+    image: timescale/timescaledb:latest-pg17
+    environment:
+      POSTGRES_USER: goldparity
+      POSTGRES_PASSWORD: goldparity
+      POSTGRES_DB: goldparity
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
